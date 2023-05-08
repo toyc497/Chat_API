@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BBMNET Websocket</title>
+        <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+        <script src="stomp.js"></script>
+    </head>
+    <body>
+
+        <label for="message-input">Enter message to send</label>
+        <input type="text" id="message-input" placeholder="conteudo">
+        <input type="text" id="id_edital" placeholder="id">
+        <button onclick="sendMessage()">send</button>
+
+        <button onclick="connectWebsocket()">Connect</button>
+
+        <ul id="message-list"></ul>
+
+        <script src="main.js"></script>
+    </body>
+</html>
