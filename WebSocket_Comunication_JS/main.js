@@ -32,3 +32,5 @@ function sendMessage(){
     }
     stompClient.send("/app/bbmnet_message", headers, JSON.stringify({"conteudo": textMessage,"idEdital": idMessage}));
 }
+
+//{'conteudo': 'Microtecnica','idEdital': 9}
