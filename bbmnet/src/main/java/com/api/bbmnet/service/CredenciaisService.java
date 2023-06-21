@@ -27,6 +27,27 @@ public class CredenciaisService {
 		
 	}
 	
+	public CredenciaisForm findCredencialByIdSystema(Long id) {
+		
+		Optional<SistemaEntity> sistemaFounded = sistemaRepository.findById(id);
+		SistemaEntity sistema = null;
+		
+		if(sistemaFounded.isPresent()) {
+			sistema = sistemaFounded.get();
+		}
+		
+		CredenciaisEntity credencialFromDB = credenciaisRepository.searchBySystemId(sistema);
+		
+		CredenciaisForm credencialResult = new CredenciaisForm();
+		credencialResult.setId(credencialFromDB.getId());
+		credencialResult.setUsuario(credencialFromDB.getUsuario());
+		credencialResult.setSenha(credencialFromDB.getSenha());
+		credencialResult.setIdSistema(credencialFromDB.getSistema().getId());
+		
+		return credencialResult;
+		
+	}
+	
 	public CredenciaisEntity saveCredencial(CredenciaisForm credenciaisForm) {
 		
 		Optional<SistemaEntity> sistema = sistemaRepository.findById(credenciaisForm.getIdSistema());

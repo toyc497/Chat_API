@@ -7,6 +7,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,11 +29,11 @@ public class SistemaEntity {
 	@Column(name="nome",unique=true)
 	private String nome;
 	
-	@OneToMany(mappedBy = "sistema",fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "sistema", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<CredenciaisEntity> credenciais = new ArrayList<>();
 
-	@OneToMany(mappedBy = "sistema",fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "sistema", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<EditalEntity> editais = new ArrayList<>();
 	

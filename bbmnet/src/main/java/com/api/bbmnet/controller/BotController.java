@@ -49,7 +49,6 @@ public class BotController {
 	@SendTo("/topic/bbmnet")
 	public MensagemEntity botSaveBbmnetMessage(MensagemForm mensagemForm) {
 		
-		System.out.println("Conteudo: "+mensagemForm.getConteudo());
 		MensagemEntity mensagem =  mensagemService.saveMensagem(mensagemForm);
 		
 		return mensagem;

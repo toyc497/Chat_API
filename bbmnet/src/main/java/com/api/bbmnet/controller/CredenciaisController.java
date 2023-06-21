@@ -34,6 +34,13 @@ public class CredenciaisController {
 		
 	}
 	
+	@GetMapping("/getbyidsistema/{id}")
+	public ResponseEntity<CredenciaisForm> getCredencialByIdSistema(@PathVariable("id") Long id){
+		
+		return ResponseEntity.status(HttpStatus.OK).body(credenciaisService.findCredencialByIdSystema(id));
+		
+	}
+	
 	@PostMapping("/save")
 	public ResponseEntity<CredenciaisEntity> createCredencial(@RequestBody @Valid CredenciaisForm credenciaisForm){
 		
