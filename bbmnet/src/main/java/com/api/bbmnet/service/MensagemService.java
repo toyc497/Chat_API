@@ -38,6 +38,8 @@ public class MensagemService {
 		}
 		
 		MensagemEntity mensagem = new MensagemEntity();
+		mensagem.setOrigem(mensagemForm.getOrigem());
+		mensagem.setDataHora(mensagemForm.getDataHora());
 		mensagem.setConteudo(mensagemForm.getConteudo());
 		mensagem.setEdital(edital);
 		

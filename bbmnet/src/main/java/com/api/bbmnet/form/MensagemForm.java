@@ -6,12 +6,24 @@ public class MensagemForm {
 
 	private Long id;
 	
+	private String origem;
+	
+	private String dataHora;
+	
 	private String conteudo;
 	
 	private Long idEdital;
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getOrigem() {
+		return origem;
+	}
+
+	public String getDataHora() {
+		return dataHora;
 	}
 
 	public String getConteudo() {
@@ -26,6 +38,14 @@ public class MensagemForm {
 		this.id = id;
 	}
 
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public void setDataHora(String dataHora) {
+		this.dataHora = dataHora;
+	}
+
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
@@ -36,7 +56,7 @@ public class MensagemForm {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(conteudo, id, idEdital);
+		return Objects.hash(conteudo, dataHora, id, idEdital, origem);
 	}
 
 	@Override
@@ -48,8 +68,9 @@ public class MensagemForm {
 		if (getClass() != obj.getClass())
 			return false;
 		MensagemForm other = (MensagemForm) obj;
-		return Objects.equals(conteudo, other.conteudo) && Objects.equals(id, other.id)
-				&& Objects.equals(idEdital, other.idEdital);
+		return Objects.equals(conteudo, other.conteudo) && Objects.equals(dataHora, other.dataHora)
+				&& Objects.equals(id, other.id) && Objects.equals(idEdital, other.idEdital)
+				&& Objects.equals(origem, other.origem);
 	}
 	
 }

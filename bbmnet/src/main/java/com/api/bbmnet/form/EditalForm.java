@@ -8,9 +8,11 @@ public class EditalForm {
 
 	private Long id;
 	
-	private Integer chaveEdital;
+	private String chaveEdital;
 	
 	private Long numeroPregao;
+	
+	private String orgao;
 	
 	private Integer lote;
 	
@@ -21,12 +23,16 @@ public class EditalForm {
 		return id;
 	}
 
-	public Integer getChaveEdital() {
+	public String getChaveEdital() {
 		return chaveEdital;
 	}
 
 	public Long getNumeroPregao() {
 		return numeroPregao;
+	}
+
+	public String getOrgao() {
+		return orgao;
 	}
 
 	public Integer getLote() {
@@ -41,12 +47,16 @@ public class EditalForm {
 		this.id = id;
 	}
 
-	public void setChaveEdital(Integer chaveEdital) {
+	public void setChaveEdital(String chaveEdital) {
 		this.chaveEdital = chaveEdital;
 	}
 
 	public void setNumeroPregao(Long numeroPregao) {
 		this.numeroPregao = numeroPregao;
+	}
+
+	public void setOrgao(String orgao) {
+		this.orgao = orgao;
 	}
 
 	public void setLote(Integer lote) {
@@ -59,7 +69,7 @@ public class EditalForm {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(chaveEdital, id, idSistema, lote, numeroPregao);
+		return Objects.hash(chaveEdital, id, idSistema, lote, numeroPregao, orgao);
 	}
 
 	@Override
@@ -73,7 +83,7 @@ public class EditalForm {
 		EditalForm other = (EditalForm) obj;
 		return Objects.equals(chaveEdital, other.chaveEdital) && Objects.equals(id, other.id)
 				&& Objects.equals(idSistema, other.idSistema) && Objects.equals(lote, other.lote)
-				&& Objects.equals(numeroPregao, other.numeroPregao);
+				&& Objects.equals(numeroPregao, other.numeroPregao) && Objects.equals(orgao, other.orgao);
 	}
 	
 }

@@ -19,6 +19,12 @@ public class MensagemEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name="origem")
+	private String origem;
+	
+	@Column(name="data_hora")
+	private String dataHora;
+	
 	@Column(name="conteudo")
 	private String conteudo;
 	
@@ -28,6 +34,14 @@ public class MensagemEntity {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getOrigem() {
+		return origem;
+	}
+
+	public String getDataHora() {
+		return dataHora;
 	}
 
 	public String getConteudo() {
@@ -42,6 +56,14 @@ public class MensagemEntity {
 		this.id = id;
 	}
 
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public void setDataHora(String dataHora) {
+		this.dataHora = dataHora;
+	}
+
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
@@ -52,7 +74,7 @@ public class MensagemEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(conteudo, edital, id);
+		return Objects.hash(conteudo, dataHora, edital, id, origem);
 	}
 
 	@Override
@@ -64,8 +86,9 @@ public class MensagemEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		MensagemEntity other = (MensagemEntity) obj;
-		return Objects.equals(conteudo, other.conteudo) && Objects.equals(edital, other.edital)
-				&& Objects.equals(id, other.id);
+		return Objects.equals(conteudo, other.conteudo) && Objects.equals(dataHora, other.dataHora)
+				&& Objects.equals(edital, other.edital) && Objects.equals(id, other.id)
+				&& Objects.equals(origem, other.origem);
 	}
 	
 }

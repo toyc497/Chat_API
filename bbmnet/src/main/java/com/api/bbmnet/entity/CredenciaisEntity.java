@@ -19,7 +19,7 @@ public class CredenciaisEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="usuario",unique=true)
+	@Column(name="usuario")
 	private String usuario;
 	
 	@Column(name="senha")

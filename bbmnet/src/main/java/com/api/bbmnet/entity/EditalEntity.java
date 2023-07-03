@@ -28,12 +28,14 @@ public class EditalEntity {
 	private Long id;
 	
 	@Column(name="chave_edital")
-	@NotNull
-	private Integer chaveEdital;
+	private String chaveEdital;
 	
 	@Column(name="numero_pregao")
 	@NotNull
 	private Long numeroPregao;
+	
+	@Column(name="orgao")
+	private String orgao;
 	
 	@Column(name="lote")
 	@NotNull
@@ -51,12 +53,16 @@ public class EditalEntity {
 		return id;
 	}
 
-	public Integer getChaveEdital() {
+	public String getChaveEdital() {
 		return chaveEdital;
 	}
 
 	public Long getNumeroPregao() {
 		return numeroPregao;
+	}
+
+	public String getOrgao() {
+		return orgao;
 	}
 
 	public Integer getLote() {
@@ -75,12 +81,16 @@ public class EditalEntity {
 		this.id = id;
 	}
 
-	public void setChaveEdital(Integer chaveEdital) {
+	public void setChaveEdital(String chaveEdital) {
 		this.chaveEdital = chaveEdital;
 	}
 
 	public void setNumeroPregao(Long numeroPregao) {
 		this.numeroPregao = numeroPregao;
+	}
+
+	public void setOrgao(String orgao) {
+		this.orgao = orgao;
 	}
 
 	public void setLote(Integer lote) {
@@ -97,7 +107,7 @@ public class EditalEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(chaveEdital, id, lote, mensagens, numeroPregao, sistema);
+		return Objects.hash(chaveEdital, id, lote, mensagens, numeroPregao, orgao, sistema);
 	}
 
 	@Override
@@ -111,7 +121,8 @@ public class EditalEntity {
 		EditalEntity other = (EditalEntity) obj;
 		return Objects.equals(chaveEdital, other.chaveEdital) && Objects.equals(id, other.id)
 				&& Objects.equals(lote, other.lote) && Objects.equals(mensagens, other.mensagens)
-				&& Objects.equals(numeroPregao, other.numeroPregao) && Objects.equals(sistema, other.sistema);
+				&& Objects.equals(numeroPregao, other.numeroPregao) && Objects.equals(orgao, other.orgao)
+				&& Objects.equals(sistema, other.sistema);
 	}
 	
 }

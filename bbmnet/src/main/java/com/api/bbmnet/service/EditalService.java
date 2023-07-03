@@ -43,6 +43,7 @@ public class EditalService {
 		EditalEntity edital = new EditalEntity();
 		edital.setChaveEdital(editalForm.getChaveEdital());
 		edital.setNumeroPregao(editalForm.getNumeroPregao());
+		edital.setOrgao(editalForm.getOrgao());
 		edital.setLote(editalForm.getLote());
 		edital.setSistema(sistemaAux);
 		
