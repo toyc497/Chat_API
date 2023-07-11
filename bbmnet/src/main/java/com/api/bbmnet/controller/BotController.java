@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.bbmnet.entity.MensagemEntity;
 import com.api.bbmnet.form.BotRequestForm;
 import com.api.bbmnet.form.MensagemForm;
+import com.api.bbmnet.service.ApiBotService;
 import com.api.bbmnet.service.BotService;
 import com.api.bbmnet.service.MensagemService;
 
@@ -28,12 +29,17 @@ public class BotController {
 	@Autowired
 	private MensagemService mensagemService;
 	
+	@Autowired
+	private ApiBotService apiBotService;
+	
 	@GetMapping("/request/{id}")
-	public ResponseEntity<BotRequestForm> getBotRequest(@PathVariable("id") Long idEdital){
+	public ResponseEntity<String> getBotRequest(@PathVariable("id") Long idEdital){
 		
 		BotRequestForm botForm = botService.getEditalAndCredencial(idEdital);
 		
-		return ResponseEntity.status(HttpStatus.OK).body(botForm);
+		String responseMessage = apiBotService.getMessagesPregao(botForm);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(responseMessage);
 		
 	}
 	
