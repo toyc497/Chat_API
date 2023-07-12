@@ -51,7 +51,7 @@ public class BotController {
 		
 	}
 	
-	@MessageMapping("/bbmnet_message")
+	@MessageMapping("/bbmnetSendMessage")
 	@SendTo("/topic/bbmnet")
 	public MensagemEntity botSaveBbmnetMessage(MensagemForm mensagemForm) {
 		
